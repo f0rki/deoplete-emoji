@@ -15,13 +15,14 @@ class Source(Base):
     def __init__(self, vim):
         super().__init__(vim)
 
-        self.__pattern = re.compile(r':[^:\s]+$')
+        self.__pattern = re.compile(r':[^:\s]{2}[^:\s]+$')
 
         self.filetypes = ['gitcommit', 'markdown']
         self.mark = '[emoji]'
         self.matchers = ['matcher_length', 'matcher_full_fuzzy']
         self.name = 'emoji'
         self.max_candidates = 0
+        self.rank = 0
 
     def gather_candidates(self, context):
         return [{
