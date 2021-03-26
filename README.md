@@ -13,7 +13,7 @@ To install `deoplete-emoji`, use your favorite [Neovim](https://neovim.io/) plug
 
 ```vim
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'fszymanski/deoplete-emoji'
+Plug 'f0rki/deoplete-emoji'
 ```
 
 ## Documentation
