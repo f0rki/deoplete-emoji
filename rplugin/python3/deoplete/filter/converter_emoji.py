@@ -4,13 +4,10 @@
 # License: MIT license
 # ============================================================================
 
-import re
-
 from deoplete.filter.base import Base
 
 
 class Filter(Base):
-
     def __init__(self, vim):
         super().__init__(vim)
 
@@ -22,8 +19,7 @@ class Filter(Base):
         def convert(x):
             word = x['kind'].strip()
             kind = x['word'].strip()
-            return { 'word': word, 'kind': kind }
+
+            return {'word': word, 'kind': kind}
 
         return list(map(convert, context['candidates']))
-
-
