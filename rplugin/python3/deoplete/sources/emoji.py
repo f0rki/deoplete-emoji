@@ -8,7 +8,7 @@ from .base import Base
 from deoplete.util import load_external_module
 
 load_external_module(__file__, 'sources/emoji')
-from data import EMOJI_CODES
+from emoji import unicode_codes
 
 
 class Source(Base):
@@ -21,10 +21,10 @@ class Source(Base):
         self.mark = '[emoji]'
         self.matchers = ['matcher_length', 'matcher_full_fuzzy']
         self.name = 'emoji'
-        self.max_candidates = 0
+        self.max_candidates = 5000
 
     def gather_candidates(self, context):
-        return [{'word': k, 'kind': ' {} '.format(v)} for (k, v) in EMOJI_CODES.items()]
+        return [{'word': k, 'kind': f' {v} '} for (k, v) in unicode_codes.EMOJI_ALIAS_UNICODE.items()]
 
     def get_complete_position(self, context):
         match = self.__pattern.search(context['input'])
